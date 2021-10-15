@@ -1,0 +1,3 @@
+<section>
+    Авторизация
+</section>

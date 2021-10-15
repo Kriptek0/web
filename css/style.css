@@ -50,3 +50,30 @@ a{
     text-align: center;
 }
 
+nav{
+    margin-top: 10px;
+    background-color: #bd9853;
+    border: 1px solid white;
+}
+
+nav>ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+}
+
+nav>ul>li>a{
+    display: block;
+    padding: 10px 20px;
+}
+
+nav>ul>li>a:hover{
+    background-color: burlywood;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
