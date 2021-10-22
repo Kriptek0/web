@@ -77,3 +77,32 @@ form{
     display: flex;
     flex-direction: column;
 }
+
+
+.reg-wrapper{
+    width: 250px;
+    height: 300px;
+    margin: auto;
+}
+
+.string{
+    display: flex; 
+}
+
+.string>label{
+    flex-basis: 70px;
+    margin-bottom: 10px;
+}
+
+.string>input{
+    flex-basis: 200px;
+    margin-bottom: auto;
+}
+
+.buttons{
+    justify-content: center;
+}
+
+.autor{
+    text-align: center;
+}
