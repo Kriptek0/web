@@ -6,6 +6,7 @@
         <link href="css/style.css" rel="stylesheet">
         <link href="icon.png" type="image/x-icon" rel="shortcut icon">
         <script src="js/jquery.min.js" defer></script>
+        <script src="js/reg.js" defer></script>
     </head>
     <body>
         <header>

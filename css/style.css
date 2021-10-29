@@ -80,8 +80,8 @@ form{
 
 
 .reg-wrapper{
-    width: 250px;
-    height: 300px;
+    width: 350px;
+    height: 400px;
     margin: auto;
 }
 
@@ -90,7 +90,7 @@ form{
 }
 
 .string>label{
-    flex-basis: 70px;
+    flex-basis: 150px;
     margin-bottom: 10px;
 }
 
@@ -105,4 +105,22 @@ form{
 
 .autor{
     text-align: center;
+}
+
+.string>select{
+    width: 200px;
+    margin-bottom: auto;
+    border-radius: 0;
+    border:  1px solid rgb(145, 145, 145);
+}
+
+.agreement{
+    justify-content: center;
+    margin-bottom: 10px;
+    display: flex;
+}
+
+input[type="reset"]{
+    flex-grow: 0;
+    flex-basis: auto;
 }
