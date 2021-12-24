@@ -1,4 +1,4 @@
-$(() => {
+$(function(){
     $("#send").prop("disabled", !$("#agreement").prop("checked"));
 
     $("#agreement").click(function(){

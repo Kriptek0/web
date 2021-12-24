@@ -1,7 +1,7 @@
 <section>
     <h1 class="autor">Регистрация</h1>
-    <div class="error" id="error"></div>
-    <form method="post" id="form">
+    <div class="error" id="error"><?=$info ?? ""?></div>
+    <form id="form" method="post">
         <div class="reg-wrapper">
             <div class="string">
                 <label>Фамилия:</label>
@@ -58,7 +58,7 @@
 
             <div class="string">
                 <label>Email:</label>
-                <input data-desc="Почта" type="email" name="email" required>
+                <input data-desc="Почта" type="email" name="email" placeholder="email@email.ru" required>
             </div>
 
             <div class="agreement">
@@ -68,7 +68,7 @@
             
             <div class="string buttons">
                 <input type="reset" value="Очистить">
-                <button id="send" >Отправить</button>
+                <button id="send" name="send">Отправить</button>
             </div>
             
         </div>
