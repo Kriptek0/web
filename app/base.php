@@ -1,5 +1,7 @@
 <?php
 
+require_once "user.php";
+
 class Base{
     protected $base;
     public function __construct($connection){
@@ -15,12 +17,14 @@ class Base{
         }
     }
 
-    public function saveUser($name, $login, $password){
+    public function saveUser($user)
+    {
         $query = $this->base->prepare("INSERT INTO users (name, login, password)
         VALUES (:name, :login, :password);");
-        $query->bindValue(":login", $login);
-        $query->bindValue(":name", $name);
-        $query->bindValue(":password", $password);
+
+        $query->bindValue(":login", $user->getLogin());
+        $query->bindValue(":name", $user->getName());
+        $query->bindValue(":password", $user->getPassword());
 
         try{
             $query->execute();
@@ -30,6 +34,32 @@ class Base{
         }
 
         return true;
+    }
+
+    public function loadUser($login, $password)
+    {
+        $query = $this->base->prepare("SELECT * FROM `users` WHERE `login` = :login LIMIT 1;");
+        $query->bindValue(":login", $login);
+        try
+        {
+            $query->execute();
+        }
+        catch (PDOException $ex)
+        {
+            die("select error: " . $ex->getMessage());
+        }
+
+        $data = $query->fetch(PDO::FETCH_ASSOC);
+
+        if(!$data)
+            return false;
+        
+        if($password != $data["password"])
+            return false;
+
+        return new User($data["name"], $data["login"], $data["password"]);
+        unset($userData);
+
     }
 
 }

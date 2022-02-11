@@ -2,6 +2,7 @@
 
 require_once "router.php";
 require_once "base.php";
+require_once "user.php";
 $url = Router::parse();
 
 $pagelink = $url = "" ? "index" : $url;
@@ -28,6 +29,21 @@ $base = new Base($connection);
 
 unset($connection);
 
+if(isset($_POST["entrance"]))
+{
+    $login = $_POST["login"];
+    $password = $_POST["password"];
+    $user = $base->loadUser($login, $password);
+
+    if($user == false)
+        $info = "Не верный логин или пароль ";
+    else
+    {
+        $info = "Вы пошли под именем " . $user->getName();
+    }
+}
+
+
 if(isset($_POST["send"])){
     $name = $_POST["name"];
     $login = $_POST["login"];
@@ -37,7 +53,8 @@ if(isset($_POST["send"])){
     if($password != $password2)
         $info = "Пароли не совпали!";
     else{
-        $userData = $base->saveUser($name, $login, $password);
+        $user = new User($name, $login, $password);
+        $userData = $base->saveUser($user);
         if($userData == false)
             $info = "Не зарегистрированы";
         else
